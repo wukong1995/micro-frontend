@@ -95,7 +95,7 @@ const RGB = ({ match: { params } }) => (
   </div>
 );
 
-const styles = {};
+const styles: any = {};
 
 styles.fill = {
   position: "absolute",

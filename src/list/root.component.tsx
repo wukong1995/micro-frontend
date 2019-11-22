@@ -20,13 +20,7 @@ import {
 }
 */
 
-const AnimationExample = (customProps) => {
-  const { allStates, dispatch } = customProps
-  console.log('this is initState', allStates())
-  console.log('--this is app id', allStates().app.id)
-  // set redux by customProps
-  // dispatch redux and global store
-
+const AnimationExample = () => {
   return (
     <Router basename="/list">
       <Route
@@ -54,7 +48,7 @@ const AnimationExample = (customProps) => {
                 */}
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                   <Switch location={location}>
-                    <Route exact path="/hsl/:h/:s/:l" component={(props) => <HSL {...props} allStates={allStates} dispatch={dispatch} />} />
+                    <Route exact path="/hsl/:h/:s/:l" component={(props) => <HSL {...props} />} />
                     <Route exact path="/rgb/:r/:g/:b" component={RGB} />
                     {/* Without this `Route`, we would get errors during
                       the initial transition from `/` to `/hsl/10/90/50`
@@ -77,7 +71,7 @@ const NavLink = props => (
   </li>
 );
 
-const HSL = ({ match: { params }, dispatch, allStates}) => (
+const HSL = ({ match: { params }}) => (
   <div
     style={{
       ...styles.fill,
@@ -86,7 +80,6 @@ const HSL = ({ match: { params }, dispatch, allStates}) => (
     }}
   >
     hsl({params.h}, {params.s}%, {params.l}%)
-    <button onClick={() => { dispatch('SET_APP', { id: 4 }); console.log('new state', allStates())}}>点击</button>
   </div>
 );
 
@@ -102,7 +95,7 @@ const RGB = ({ match: { params } }) => (
   </div>
 );
 
-const styles = {};
+const styles: any = {};
 
 styles.fill = {
   position: "absolute",

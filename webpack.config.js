@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     // Set the single-spa config as the project entry point
-    'single-spa.config': './single-spa.config.js',
+    'single-spa.config': './src/portal/single-spa.config.ts',
   },
   output: {
     publicPath: '/dist/',
@@ -24,6 +24,10 @@ module.exports = {
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader',
       }, {
+        test: /\.tsx?$/,
+        exclude: [path.resolve(__dirname, 'node_modules')],
+        loader: 'ts-loader',
+      }, {
         // This plugin will allow us to use AngularJS HTML templates
         test: /\.html$/,
         exclude: /node_modules/,
@@ -36,6 +40,8 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'node_modules')],
+    extensions: ['.js', '.ts', '.tsx']
+
   },
   plugins: [
     // A webpack plugin to remove/clean the output folder before building
