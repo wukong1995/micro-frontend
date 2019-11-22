@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     // Set the single-spa config as the project entry point
-    'single-spa.config': './src/portal/single-spa.config.ts',
+    'single-spa.config': './src/portal/single-spa.config.js',
   },
   output: {
     publicPath: '/dist/',
@@ -40,7 +40,7 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'node_modules')],
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.ts', '.tsx', '.js']
 
   },
   plugins: [
