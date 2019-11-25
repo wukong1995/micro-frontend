@@ -5,10 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    // Set the single-spa config as the project entry point
-    'home': './home.app.ts',
+    'home': './home.app.tsx',
   },
   output: {
+    libraryTarget: 'amd',
     publicPath: '/dist/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -16,7 +16,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // Webpack style loader added so we can use materialize
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       }, {

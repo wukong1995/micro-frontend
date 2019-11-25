@@ -11,7 +11,7 @@ registerApplication(
   // Name of our single-spa application
   'home',
   // loadingFunction
-  () => SystemJS.import('http://localhost:8081/dist/home.js'),
+  () => SystemJS.import('@portal/home'),
   // activityFunction
   (location) => location.pathname === "" ||
     location.pathname === "/" ||

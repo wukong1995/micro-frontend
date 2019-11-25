@@ -6,9 +6,10 @@ module.exports = {
   mode: 'development',
   entry: {
     // Set the single-spa config as the project entry point
-    'navbar': './navBar.app.ts',
+    'navbar': './navBar.app.tsx',
   },
   output: {
+    libraryTarget: 'amd',
     publicPath: '/dist/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),

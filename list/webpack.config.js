@@ -9,6 +9,7 @@ module.exports = {
     'list': './list.app.tsx',
   },
   output: {
+    libraryTarget: 'amd',
     publicPath: '/dist/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
