@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@portal/home": "http://localhost:8081/home.js",
+    "@portal/list": "http://localhost:8082/list.js",
+    "@portal/navbar": "http://localhost:8083/navbar.js"
+  }
+}

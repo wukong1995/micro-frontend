@@ -10,7 +10,7 @@ registerApplication(
   // Name of our single-spa application
   'home',
   // loadingFunction
-  () => import('../home/home.app'),
+  () => System.import('@portal/home'),
   // activityFunction
   (location) => location.pathname === "" ||
     location.pathname === "/" ||
@@ -19,13 +19,13 @@ registerApplication(
 
 registerApplication(
   'navBar',
-  () => import('../navBar/navBar.app').then(module => module.navBar),
+  () => System.import('@portal/navbar').then(module => module.navBar),
   () => true
 );
 
 registerApplication(
   'list',
-  () => import('../list/list.app'),
+  () => System.import('@portal/list'),
   pathPrefix('/list')
 );
 

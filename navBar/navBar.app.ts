@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
-import NavBar from './root.component';
+import NavBar from './src/root.component';
 
 function domElementGetter() {
   return document.getElementById("navBar")
