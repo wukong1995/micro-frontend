@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:all": "npm run start:portal & npm run start:list & npm run start:home & npm run start:navbar",
+    "start:all": "npm run start:list & npm run start:home & npm run start:navbar & npm run start:portal ",
     "start:portal": "cd ./portal && npm run start",
     "start:home": "cd ./home && npm run start",
     "start:list": "cd ./list && npm run start",

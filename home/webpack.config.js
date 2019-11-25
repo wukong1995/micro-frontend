@@ -45,6 +45,9 @@ module.exports = {
   devtool: 'source-map',
   externals: [],
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    }
   }
 };

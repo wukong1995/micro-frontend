@@ -18,8 +18,8 @@ registerApplication(
 );
 
 registerApplication(
-  'navBar',
-  () => System.import('@portal/navbar').then(module => module.navBar),
+  'navbar',
+  () => System.import('@portal/navbar'),
   () => true
 );
 

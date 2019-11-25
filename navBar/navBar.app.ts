@@ -7,9 +7,21 @@ function domElementGetter() {
   return document.getElementById("navBar")
 }
 
-export const navBar = singleSpaReact({
+const reactLifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: NavBar,
   domElementGetter,
 })
+
+export const bootstrap = (props) => {
+  return reactLifecycles.bootstrap(props)
+}
+
+export const mount = [
+  reactLifecycles.mount,
+];
+
+export const unmount = [
+  reactLifecycles.unmount,
+];
