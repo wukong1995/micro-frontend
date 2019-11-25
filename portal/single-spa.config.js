@@ -5,12 +5,13 @@ function pathPrefix(prefix) {
     return location.pathname.startsWith(prefix);
   }
 }
+const SystemJS = window.System
 
 registerApplication(
   // Name of our single-spa application
   'home',
   // loadingFunction
-  () => System.import('@portal/home'),
+  () => SystemJS.import('http://localhost:8081/dist/home.js'),
   // activityFunction
   (location) => location.pathname === "" ||
     location.pathname === "/" ||
@@ -19,13 +20,13 @@ registerApplication(
 
 registerApplication(
   'navbar',
-  () => System.import('@portal/navbar'),
+  () => SystemJS.import('@portal/navbar'),
   () => true
 );
 
 registerApplication(
   'list',
-  () => System.import('@portal/list'),
+  () => SystemJS.import('@portal/list'),
   pathPrefix('/list')
 );
 
