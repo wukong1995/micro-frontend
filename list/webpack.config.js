@@ -52,6 +52,7 @@ module.exports = {
   externals: [],
   devServer: {
     historyApiFallback: true,
+    port: 8082,
     headers: {
       "Access-Control-Allow-Origin": "*",
     }
