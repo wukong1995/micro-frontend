@@ -6,6 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     'home': './home.app.tsx',
+    'store': './src/store/index.ts'
   },
   output: {
     libraryTarget: 'amd',

@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux';
 import Signin from './page/Signin';
-import SignUp from './page/SignUp';
-import store from './store'
+import Signup from './page/Signup';
+// import store from './store'
 
 const NavLink = props => (
   <li>
@@ -17,37 +17,40 @@ const NavLink = props => (
   </li>
 );
 
-const AnimationExample = () => {
-  return (
-    <Provider store={store}>
-      <Router basename="/home">
-        <Route
-          render={() => (
-            <div style={{ position: 'relative', height: '100%' }}>
-              <Route
-                exact
-                path="/"
-                render={() => <Redirect to="/signin" />}
-              />
+class AnimationExample extends React.Component<any, any> {
+   render() {
+    const { globalEventDistributor, store} = this.props
+    return (
+      <Provider store={store}>
+        <Router basename="/home">
+          <Route
+            render={() => (
+              <div style={{ position: 'relative', height: '100%' }}>
+                <Route
+                  exact
+                  path="/"
+                  render={() => <Redirect to="/signin" />}
+                />
 
-              <ul>
-                <NavLink to="/signin">signin</NavLink>
-                <NavLink to="/signup">signup</NavLink>
-              </ul>
+                <ul>
+                  <NavLink to="/signin">signin</NavLink>
+                  <NavLink to="/signup">signup</NavLink>
+                </ul>
 
-              <div>
-                <Switch>
-                  <Route path="/signin" component={Signin} />
-                  <Route path="/signup" component={SignUp} />
-                  <Route render={() => <div>Not Found</div>} />
-                </Switch>
+                <div>
+                  <Switch>
+                    <Route path="/signin" render={(props) => <Signin {...props} globalEvent={globalEventDistributor} />} />
+                    <Route path="/signup" render={(props) => <Signup {...props} globalEvent={globalEventDistributor} />} />
+                    <Route render={() => <div>Not Found</div>} />
+                  </Switch>
+                </div>
               </div>
-            </div>
-          )}
-        />
-      </Router>
-    </Provider>
-  )
+            )}
+          />
+        </Router>
+      </Provider>
+    )
+  }
 };
 
 

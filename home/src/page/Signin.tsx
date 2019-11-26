@@ -10,8 +10,9 @@ class Signin extends React.Component<any, any> {
     this.props.dispatch(signin(hash))
   }
 
-  getHash = () => {
-    console.log(this.props.hash)
+  updateGlobalHash = () => {
+    const hash = this.$input.value
+    this.props.globalEvent.dispatch(signin(hash))
   }
 
   render () {
@@ -19,8 +20,8 @@ class Signin extends React.Component<any, any> {
       <div>
         <div>当前hash: {this.props.hash}</div>
         <div>请输入hash：<input type="text" ref={ref => this.$input = ref} /></div>
-        <button onClick={this.updateHash}>更新hash</button>
-        <button onClick={this.getHash}>得到hash</button>
+        <button onClick={this.updateHash}>广播更新hash</button>
+        <button onClick={this.updateGlobalHash}>不广播更新hash</button>
       </div>
     )
   }

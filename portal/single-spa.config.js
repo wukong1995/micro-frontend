@@ -1,33 +1,41 @@
-import { registerApplication, start } from 'single-spa'
+import { start } from 'single-spa'
+import "@babel/polyfill"
+import { GlobalEventDistributor } from './src/all_stores'
+import { registerApp } from './src/utils'
 
-function pathPrefix(prefix) {
-  return function (location) {
-    return location.pathname.startsWith(prefix);
-  }
+const globalEventDistributor = new GlobalEventDistributor()
+
+const init = async () => {
+  const loadPromise = []
+
+  loadPromise.push(registerApp(
+    'home',
+    '@portal/home',
+    (location) => location.pathname === "" ||
+      location.pathname === "/" ||
+      location.pathname.startsWith('/home'),
+    '@portal/homeStore',
+    globalEventDistributor
+  ))
+
+  loadPromise.push(registerApp(
+    'navbar',
+    '@portal/navbar',
+    () => true,
+    null,
+    null
+  ))
+
+  loadPromise.push(registerApp(
+    'list',
+    '@portal/list',
+    '/list',
+    '@portal/listStore',
+    globalEventDistributor
+  ))
+
+  await Promise.all(loadPromise)
+  start();
 }
-const SystemJS = window.System
 
-registerApplication(
-  // Name of our single-spa application
-  'home',
-  // loadingFunction
-  () => SystemJS.import('@portal/home'),
-  // activityFunction
-  (location) => location.pathname === "" ||
-    location.pathname === "/" ||
-    location.pathname.startsWith('/home'),
-);
-
-registerApplication(
-  'navbar',
-  () => SystemJS.import('@portal/navbar'),
-  () => true
-);
-
-registerApplication(
-  'list',
-  () => SystemJS.import('@portal/list'),
-  pathPrefix('/list')
-);
-
-start();
+init()

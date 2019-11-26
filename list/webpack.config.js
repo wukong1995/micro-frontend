@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     // Set the single-spa config as the project entry point
     'list': './list.app.tsx',
+    'store': './src/store/index.ts'
   },
   output: {
     libraryTarget: 'amd',
