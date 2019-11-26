@@ -17,7 +17,8 @@ class Signin extends React.Component<any, any> {
   render () {
     return (
       <div>
-        请输入hash：<input type="text" ref={ref => this.$input = ref} />
+        <div>当前hash: {this.props.hash}</div>
+        <div>请输入hash：<input type="text" ref={ref => this.$input = ref} /></div>
         <button onClick={this.updateHash}>更新hash</button>
         <button onClick={this.getHash}>得到hash</button>
       </div>
