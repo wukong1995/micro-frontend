@@ -19,10 +19,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "noEmit": false,
-    "noEmitHelpers": true,
-    "noEmitOnError": false,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
+    "alwaysStrict": false,
   },
   "include": [
     "./src/**/*"
