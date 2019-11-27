@@ -24,12 +24,13 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'ts-loader',
-      }, {
-        // This plugin will allow us to use AngularJS HTML templates
-        test: /\.html$/,
-        exclude: /node_modules/,
-        loader: 'html-loader',
-      },
+      }
+      // , {
+      //   // This plugin will allow us to use AngularJS HTML templates
+      //   test: /\.html$/,
+      //   exclude: /node_modules/,
+      //   loader: 'html-loader',
+      // },
     ],
   },
   node: {
