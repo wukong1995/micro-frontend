@@ -3,6 +3,7 @@ const app = new Koa();
 const serve = require('koa-static');
 const colors = require('colors');
 const path = require('path');
+const proxy = require('koa-proxy');
 const router = require('koa-router')();
 const { globalConf } = require('./util');
 
@@ -32,6 +33,18 @@ router.get('/*', ctx => {
 
 app
   .use(serve(path.join(__dirname, '../static')))
+  .use(proxy({
+    host: 'http://localhost:9001',
+    match: /^\/home-frontend\//
+  }))
+  .use(proxy({
+    host: 'http://localhost:9002',
+    match: /^\/list-frontend\//
+  }))
+  .use(proxy({
+    host: 'http://localhost:9003',
+    match: /^\/navbar-frontend\//
+  }))
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(9000);

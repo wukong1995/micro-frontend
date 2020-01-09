@@ -22,6 +22,7 @@ class Signin extends React.Component<any, any> {
         <div>请输入hash：<input type="text" ref={ref => this.$input = ref} /></div>
         <button onClick={this.updateGlobalHash}>广播更新hash</button>
         <button onClick={this.updateHash}>不广播更新hash</button>
+        <img src="/home-frontend/timg.jpeg" />
       </div>
     )
   }
