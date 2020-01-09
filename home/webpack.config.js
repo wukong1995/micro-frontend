@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const AssetsPlugin = require('assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -41,6 +41,10 @@ module.exports = {
   plugins: [
     // A webpack plugin to remove/clean the output folder before building
     new CleanWebpackPlugin(),
+    new AssetsPlugin({
+      filename: 'assets.json',
+      path: path.resolve(__dirname, 'static/portal-frontend/assets')
+    })
   ],
   devtool: 'source-map',
   externals: []

@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const AssetsPlugin = require('assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -46,7 +46,11 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, './importmap.json') },
-    ])
+    ]),
+    new AssetsPlugin({
+      filename: 'assets.json',
+      path: path.resolve(__dirname, 'static/portal-frontend/assets')
+   })
   ],
   devtool: 'source-map',
   externals: []
