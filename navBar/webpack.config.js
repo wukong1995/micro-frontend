@@ -10,9 +10,9 @@ module.exports = {
   },
   output: {
     libraryTarget: 'amd',
-    publicPath: '/static/',
+    publicPath: '/static/navbar-frontend/assets',
     filename: '[name].js',
-    path: path.resolve(__dirname, 'static'),
+    path: path.resolve(__dirname, 'static/navbar-frontend/assets'),
   },
   module: {
     rules: [

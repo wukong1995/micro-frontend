@@ -21,11 +21,11 @@ router.get('/*', ctx => {
   <div id="home"></div>
   <div id="list"></div>
 
-  <script type="systemjs-importmap" src="http://localhost:9000/importmap.json"></script>
+  <script type="systemjs-importmap" src="http://localhost:9000/portal-frontend/assets/importmap.json"></script>
   <script src='https://unpkg.com/systemjs@3.1.2/dist/system.js'></script>
   <script src='https://unpkg.com/systemjs@3.1.2/dist/extras/amd.js'></script>
   <script src='https://unpkg.com/systemjs@3.1.2/dist/extras/named-exports.js'></script>
-  <script src="http://localhost:9000/config.js"></script>
+  <script src="http://localhost:9000/portal-frontend/assets/config.js"></script>
 </body>
 </html>`;
 })

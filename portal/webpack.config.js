@@ -10,9 +10,9 @@ module.exports = {
     'config': './single-spa.config.js',
   },
   output: {
-    publicPath: '/static/',
+    publicPath: '/static/portal-frontend/assets',
     filename: '[name].js',
-    path: path.resolve(__dirname, 'static'),
+    path: path.resolve(__dirname, 'static/portal-frontend/assets'),
   },
   module: {
     rules: [

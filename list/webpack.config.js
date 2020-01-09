@@ -11,9 +11,9 @@ module.exports = {
   },
   output: {
     libraryTarget: 'amd',
-    publicPath: '/static/',
+    publicPath: '/static/list-frontend/assets',
     filename: '[name].js',
-    path: path.resolve(__dirname, 'static'),
+    path: path.resolve(__dirname, 'static/list-frontend/assets'),
   },
   module: {
     rules: [
