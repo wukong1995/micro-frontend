@@ -4,6 +4,7 @@ const serve = require('koa-static');
 const colors = require('colors');
 const path = require('path');
 const router = require('koa-router')();
+const mount = require('koa-mount')
 const { globalConf } = require('./util');
 
 console.log(globalConf.ENV.MODE)

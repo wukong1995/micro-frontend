@@ -1,9 +1,9 @@
 {
   "imports": {
-    "@portal/home": "http://localhost:8081/dist/home.js",
-    "@portal/homeStore": "http://localhost:8081/dist/store.js",
-    "@portal/list": "http://localhost:8082/dist/list.js",
-    "@portal/listStore": "http://localhost:8082/dist/store.js",
-    "@portal/navbar": "http://localhost:8083/dist/navbar.js"
+    "@portal/home": "http://localhost:9001/home.js",
+    "@portal/homeStore": "http://localhost:9001/store.js",
+    "@portal/list": "http://localhost:9002/list.js",
+    "@portal/listStore": "http://localhost:9002/store.js",
+    "@portal/navbar": "http://localhost:9003/navbar.js"
   }
 }

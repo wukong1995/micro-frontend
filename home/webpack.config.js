@@ -10,9 +10,9 @@ module.exports = {
   },
   output: {
     libraryTarget: 'amd',
-    publicPath: '/dist/',
+    publicPath: '/static/',
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'static'),
   },
   module: {
     rules: [
@@ -43,12 +43,5 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   devtool: 'source-map',
-  externals: [],
-  devServer: {
-    historyApiFallback: true,
-    port: 8081,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    }
-  }
+  externals: []
 };
