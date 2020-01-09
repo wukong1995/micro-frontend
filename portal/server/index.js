@@ -1,11 +1,15 @@
 const Koa = require('koa');
 const app = new Koa();
-const { globalConf } = require('./util')
+const serve = require('koa-static');
+const colors = require('colors');
+const path = require('path');
+const router = require('koa-router')();
+const mount = require('koa-mount')
+const { globalConf } = require('./util');
 
 console.log(globalConf.ENV.MODE)
 
-// response
-app.use(ctx => {
+router.get('/*', ctx => {
   ctx.body = `<html>
 <head>
   <!-- Materialize -->
@@ -17,14 +21,20 @@ app.use(ctx => {
   <div id="navBar"></div>
   <div id="home"></div>
   <div id="list"></div>
-  
-  <script type="systemjs-importmap" src="http://localhost:8080/dist/importmap.json"></script>
+
+  <script type="systemjs-importmap" src="http://localhost:9000/importmap.json"></script>
   <script src='https://unpkg.com/systemjs@3.1.2/dist/system.js'></script>
   <script src='https://unpkg.com/systemjs@3.1.2/dist/extras/amd.js'></script>
   <script src='https://unpkg.com/systemjs@3.1.2/dist/extras/named-exports.js'></script>
-  <script src="http://localhost:8080/dist/config.js"></script>
+  <script src="http://localhost:9000/config.js"></script>
 </body>
 </html>`;
-});
+})
 
-app.listen(8000);
+app
+  .use(serve(path.join(__dirname, '../static')))
+  .use(router.routes())
+  .use(router.allowedMethods())
+  .listen(9000);
+
+console.log(colors.green('==>服务在9000端口上启动'))

@@ -18,8 +18,7 @@ console.log(colors.green(`==> 使用 ${confPath}`))
 // 读取配置模板
 let confTemplateFormat
 try {
-  const file = path.relative(__dirname, confPath)
-  confPath = path.join(__dirname, file)
+  confPath = path.join(__dirname, confPath)
   const confTemplate = fs.readFileSync(confPath, { encoding: 'utf8' })
   confTemplateFormat = JSON.parse(confTemplate.replace(/\/\*注释\*\/.*/g, ''))
 } catch (err) {
