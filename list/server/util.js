@@ -9,9 +9,9 @@ let confPath
 if (process.env.npm_config_conf) {
   confPath = process.env.npm_config_conf
 } else if (process.env.NODE_ENV === 'production') {
-  confPath = '../config/conf.qa.conf'
+  confPath = '../../config/conf.qa.conf'
 } else {
-  confPath = '../config/conf.dev.conf'
+  confPath = '../../config/conf.dev.conf'
 }
 console.log(colors.green(`==> 使用 ${confPath}`))
 
