@@ -13,5 +13,8 @@
   - [ ] 每个项目webpack打包完后，启动server
   - [x] 每个项目webpack打包后生成assets.json文件
   - [ ] 每个项目打包后的文件增加hash串
+  > ps: dev中不增加hash串，importmap.json从配置文件读出，server不做工作
+  >     prod中子项目start的时候，首先读取assets.json，将entryfile name更新至redis中
 - [x] ~~文件增加hash串之后，如何通知主项目更新~~转移至上面的【通知/被发现更新】问题
 - [ ] 多节点部署时，一个子节点挂掉之后，主项目去找其他存活的节点
+  > ps: 子项目的server定期更新redis中的key，key消失的时候，可以认为节点死掉了
